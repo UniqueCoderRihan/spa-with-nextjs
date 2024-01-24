@@ -1,17 +1,19 @@
 'use client'
 import CouresCard from "@/componets/CouresCard";
 import { useState, useEffect } from "react";
+import CartSelected from "@/componets/cartSelected";
 
 export default function Home() {
   const [data, setdata] = useState(null)
-  const [carts,setCarts] = useState([]);
+  const [carts, setCarts] = useState([]);
   const [isLoading, setLoading] = useState(true)
   // console.log(data)
-  const addNewCart =(coures)=>{
-     // Update the carts state with the selected course
-     setCarts([...carts, coures]);
-     console.log(carts )
-    console.log("clicked",coures)
+  const addNewCart = (coures) => {
+    // Update the carts state with the selected course
+    setCarts([...carts, coures]);
+    console.log(carts)
+    console.log("clicked", coures)
+    alert('cart added')
   }
 
   useEffect(() => {
@@ -33,9 +35,9 @@ export default function Home() {
       </div>
       <div>
         <h1 className="text-3xl">Simple Cart & Details</h1>
-        <ul>
-          
-        </ul>
+        {
+          carts && carts.map(cart=> <CartSelected key={cart.id}/>)
+        }
       </div>
     </main>
   );
