@@ -6,3 +6,13 @@
   margin: 30px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.button {
+  background: greenyellow;
+  padding: 10px;
+  font-size: large;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

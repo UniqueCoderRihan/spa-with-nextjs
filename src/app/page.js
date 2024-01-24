@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <main>
       <h1 className="text-center text-3xl font-semibold">Course Registration</h1>
-      <div>
+      <div className="grid md:grid-cols-3">
         {
           data.map(coures => <CouresCard key={coures.id} coures={coures} />)
         }
