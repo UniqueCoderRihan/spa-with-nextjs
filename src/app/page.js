@@ -4,8 +4,16 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const [data, setdata] = useState(null)
+  const [carts,setCarts] = useState([]);
   const [isLoading, setLoading] = useState(true)
-  console.log(data)
+  // console.log(data)
+  const addNewCart =(coures)=>{
+     // Update the carts state with the selected course
+     setCarts([...carts, coures]);
+     console.log(carts )
+    console.log("clicked",coures)
+  }
+
   useEffect(() => {
     fetch('/fakedb.json')
       .then((res) => res.json())
@@ -18,10 +26,16 @@ export default function Home() {
   return (
     <main>
       <h1 className="text-center text-3xl font-semibold">Course Registration</h1>
-      <div className="grid md:grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-3">
         {
-          data.map(coures => <CouresCard key={coures.id} coures={coures} />)
+          data.map(coures => <CouresCard key={coures.id} addNewCart={addNewCart} coures={coures} />)
         }
+      </div>
+      <div>
+        <h1 className="text-3xl">Simple Cart & Details</h1>
+        <ul>
+          
+        </ul>
       </div>
     </main>
   );
